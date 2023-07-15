@@ -4,7 +4,7 @@ Code was developed and tested on Ubuntu 22.04 with Python 3.8 and TensorFlow 2.8
 ```
 python3 -m venv env
 source env/bin/activate
-cd VAECL-main/VAECL
+cd KDEAN-main/KDEAN
 pip3 install -r requirements.txt
 ```
 ## Download the DVTR Dataset
