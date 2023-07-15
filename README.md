@@ -18,10 +18,11 @@ rm save.zip
 ## Perfromance Test with the Trained Models
 You can run the following command to replicate the results:
 ```
-python3 vaecl.py
+python3 main.py --dataset "Mus Musculus"
 ```
+Similarily, you can change the dataset to see the perfoamnce on other datasets.
 ## Train the KDEAN Model
 You can run the following command to train the VAECL model.
 ```
-python3 vaecl.py --train True
+python3 main.py --dataset "Mus Musculus"--train True --GPU True
 ```
