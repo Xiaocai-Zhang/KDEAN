@@ -1,4 +1,4 @@
-# A Viewpoint Adaptation Ensemble Contrastive Learning Approach for Vessel Type Recognition with Limited Data
+# Knowledge-Based Dual External Attention Network for Peptide Detectability Prediction
 ## Setup
 Code was developed and tested on Ubuntu 22.04 with Python 3.8 and TensorFlow 2.8.0. You can setup a virtual environment by running the code like this:
 ```
