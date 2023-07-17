@@ -14,7 +14,7 @@ import numpy as np
 from tensorflow.keras import layers
 from sklearn.metrics import confusion_matrix,matthews_corrcoef,roc_auc_score
 import argparse
-import datetime
+from datetime import datetime
 
 
 
@@ -279,19 +279,19 @@ if __name__ == '__main__':
 
     if args.dataset=='Homo Sapiens':
         args.maxlensequence = 79
-        data, knowledge_data, label = PepCoding("./dataset/Homo Sapiens.csv", args.maxlensequence)
+        data, knowledge_data, label = PepCoding("./dataset/Homo_sapiens.csv", args.maxlensequence)
         args.train_sample = 72000
     elif args.dataset=='Mus Musculus':
         args.maxlensequence = 66
-        data, knowledge_data, label = PepCoding("./dataset/Mus Musculus.csv", args.maxlensequence)
+        data, knowledge_data, label = PepCoding("./dataset/Mus_musculus.csv", args.maxlensequence)
         args.train_sample = 72000
     elif args.dataset=='Trypsin Human':
         args.maxlensequence = 51
-        data, knowledge_data, label = PepCoding("./dataset/Trypsin Human.csv", args.maxlensequence)
+        data, knowledge_data, label = PepCoding("./dataset/Trypsin_Human.csv", args.maxlensequence)
         args.train_sample = 84806
     elif args.dataset=='LysC Human':
         args.maxlensequence = 54
-        data, knowledge_data, label = PepCoding("./dataset/LysC Human.csv", args.maxlensequence)
+        data, knowledge_data, label = PepCoding("./dataset/LysC_Human.csv", args.maxlensequence)
         args.train_sample = 45360
     else:
         raise TypeError("Dataset not found")
