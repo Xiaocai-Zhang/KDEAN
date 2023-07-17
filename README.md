@@ -10,10 +10,9 @@ pip3 install -r requirements.txt
 ## Download the trained models
 Run the following commands to download the trained VAECL model.
 ```
-cd ../models
-gdown https://drive.google.com/uc?id=1lXP8EOSj4HVGa3PAyExQ2h4MQKLZ9H1T
-unzip save
-rm save.zip
+gdown https://drive.google.com/file/d/1pDUONi_ELMnZGBqI8uNGQq44ZJRn10DH/view?usp=drive_link
+unzip Model
+rm Model.zip
 ```
 ## Perfromance Test with the Trained Models
 You can run the following command to replicate the results:
@@ -23,6 +22,10 @@ python3 main.py --dataset "Mus Musculus"
 Similarily, you can change the dataset to see the perfoamnce on other datasets.
 ## Train the KDEAN Model
 You can run the following command to train the VAECL model.
+```
+python3 main.py --dataset "Mus Musculus"--train True
+```
+If you want to use GPU acceleration, you can call
 ```
 python3 main.py --dataset "Mus Musculus"--train True --GPU True
 ```
