@@ -14,6 +14,10 @@ gdown https://drive.google.com/file/d/1pDUONi_ELMnZGBqI8uNGQq44ZJRn10DH/view?usp
 unzip Model
 rm Model.zip
 ```
+If teh download is not working, please use the following link to manually download the models 
+```
+https://drive.google.com/file/d/1pDUONi_ELMnZGBqI8uNGQq44ZJRn10DH/view?usp=drive_link
+```
 ## Perfromance Test with the Trained Models
 You can run the following command to replicate the results:
 ```
