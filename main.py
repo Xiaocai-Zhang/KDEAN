@@ -1,13 +1,11 @@
 # code for KDEAN
-import pandas as pd
-
-
 def warn(*args,**kwargs):
     pass
 import warnings
 warnings.warn=warn
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+import pandas as pd
 import tensorflow as tf
 from tensorflow.keras import optimizers, callbacks
 from tensorflow.keras.layers import *
