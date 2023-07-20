@@ -1,4 +1,7 @@
 # code for KDEAN
+import pandas as pd
+
+
 def warn(*args,**kwargs):
     pass
 import warnings
@@ -252,9 +255,9 @@ def test(test_inp,test_know,test_oup,num_model):
     model = load_model(SaveModlFile,custom_objects={'ExternalAttention':ExternalAttention})
     predictions_test = model.predict([test_inp,test_know], batch_size=args.batchsize,verbose=0)
     acc,fscore,mcc,auc = evaluate_accuracy(predictions_test, test_oup)
-    results = f'\tmodel: {num_model},acc: {acc:.4f}, fscore: {fscore:.4f}, mcc: {mcc:.4f}, auc: {auc:.4f}'
+    results = f'\tmodel: {num_model} ,acc: {acc:.4f}, fscore: {fscore:.4f}, mcc: {mcc:.4f}, auc: {auc:.4f}'
     print(results)
-    return None
+    return acc,fscore,mcc,auc
 
 
 def Norm(knowledge_data):
@@ -299,6 +302,7 @@ if __name__ == '__main__':
     knowledge_data = Norm(knowledge_data)
     knowledge_data = tf.convert_to_tensor(knowledge_data)
 
+    acc_li, fscore_li, mcc_li, auc_li = [],[],[],[]
     for num_model in range(10):
         seed = args.seed+num_model
         tf.random.set_seed(seed)
@@ -328,7 +332,18 @@ if __name__ == '__main__':
             print('Training model %s'%num_model)
             train(train_data, train_knowledge, train_label, val_data, val_knowledge,val_label,num_model)
 
-        test(test_data,test_knowledge,test_label,num_model)
+        acc,fscore,mcc,auc = test(test_data,test_knowledge,test_label,num_model)
+        acc_li.append(acc)
+        fscore_li.append(fscore)
+        mcc_li.append(mcc)
+        auc_li.append(auc)
 
+    df = pd.DataFrame({'acc':acc_li,'fscore':fscore_li,'mcc':mcc_li,'auc':auc_li})
+    print('##########################')
+    print('Mean')
+    print(df.mean())
+    print('Standard Deviation')
+    print(df.std())
     duration = (datetime.now() - start).total_seconds() / 3600
+    print('##########################')
     print("computational time: %s h" % (duration))
