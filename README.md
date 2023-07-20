@@ -29,7 +29,7 @@ You can run the following command to train the VAECL model.
 ```
 python3 main.py --dataset "Mus Musculus"--train True
 ```
-If you want to use GPU acceleration, you can call
+If you want to use GPU accelerated computing, you can call
 ```
 python3 main.py --dataset "Mus Musculus"--train True --GPU True
 ```
