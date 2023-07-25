@@ -99,12 +99,14 @@ class TempoConvNetworks:
                        kernel_initializer=init)
         batch1 = BatchNormalization(axis=-1)
         ac1 = Activation('relu')
+
         drop1 = GaussianDropout(dropout)
 
         conv2 = Conv1D(filters=nb_filters, kernel_size=kernel_size, dilation_rate=dilation_rate, padding=padding,
                        kernel_initializer=init)
         batch2 = BatchNormalization(axis=-1)
         ac2 = Activation('relu')
+
         drop2 = GaussianDropout(dropout)
 
         downsample = Conv1D(filters=nb_filters, kernel_size=1, padding='same', kernel_initializer=init)
@@ -115,11 +117,13 @@ class TempoConvNetworks:
         x = conv1(x)
         x = batch1(x)
         x = ac1(x)
-        x = drop1(x)
+        if args.train:
+            x = drop1(x)
         x = conv2(x)
         x = batch2(x)
         x = ac2(x)
-        x = drop2(x)
+        if args.train:
+            x = drop2(x)
 
         if pre_x.shape[-1] != x.shape[-1]:  # to match the dimensions
             pre_x = downsample(pre_x)
