@@ -27,9 +27,9 @@ Similarily, you can change the dataset to see the perfoamnce on other datasets.
 ## Train the KDEAN Model
 You can run the following command to train the VAECL model.
 ```
-python3 main.py --dataset "Mus Musculus"--train True
+python3 main.py --dataset "Mus Musculus" --train True
 ```
 If you want to use GPU accelerated computing, you can call
 ```
-python3 main.py --dataset "Mus Musculus"--train True --GPU True
+python3 main.py --dataset "Mus Musculus" --train True --GPU True
 ```
